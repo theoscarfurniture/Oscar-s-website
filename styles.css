@@ -156,3 +156,7 @@ footer {
   text-align: center;
   font-size: 14px;
 }
+
+section {
+  scroll-margin-top: 80px;
+}
