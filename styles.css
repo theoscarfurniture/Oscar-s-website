@@ -3,17 +3,22 @@ body {
   font-family: Arial, sans-serif;
   background: #ffffff;
   color: #0b2a4a;
+  padding-top: 80px;
 }
 
 /* HEADER */
 header {
-  padding: 20px 40px;
+  position: fixed;   /* makes it sticky */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  width: 100%;
-  z-index: 2;
+  background: #ffffff;   /* solid background so content doesn’t show through */
+  z-index: 1000;
+  border-bottom: 1px solid #0b2a4a20;
 }
 
 header img {
@@ -150,13 +155,13 @@ nav a {
   text-decoration: underline;
 }
 
+section {
+  scroll-margin-top: 100px;
+}
+
 /* FOOTER */
 footer {
   padding: 30px;
   text-align: center;
   font-size: 14px;
-}
-
-section {
-  scroll-margin-top: 80px;
 }
