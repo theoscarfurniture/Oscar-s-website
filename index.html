@@ -1,93 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oscar's Furniture</title>
-
-<!-- External CSS -->
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oscar Furniture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
-
 <body>
 
-<header>
-  <a href="#">
-    <img src="logo.png" alt="Oscar's Furniture Logo">
-  </a>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">Oscar Furniture</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
-</header>
 
-<section class="hero">
-  <div>
-    <h2>Quality Furniture. Flexible Payments.</h2>
-    <p>Family-run for 20+ years in Chicago. Carefully selected furniture designed for real homes.</p>
-    <a href="#products" class="cta">View Collection</a>
-  </div>
-</section>
-
-<div class="trust">
-  ✔ Family-Owned for 20+ Years &nbsp; • &nbsp; ✔ Quality Pieces &nbsp; • &nbsp; ✔ Flexible Payment Options
-</div>
-
-<section class="about" id="about">
-  <h3>About Us</h3>
-  <p>
-    Oscar's Furniture is a family-run business built on trust, relationships, and helping people create comfortable homes.
-    For over 20 years, we've focused on offering quality furniture at prices that work for real people.
-  </p>
-  <br><br>
-  <p>
-    We understand that furniture is a big investment. That’s why we offer flexible payment plans and work directly with you to find an option that fits your budget.
-  </p>
-  <br><br>
-  <p>
-    Our goal is simple: build long-term trust, treat people fairly, and make sure every customer walks away satisfied.
-  </p>
-  <br><br>
-  <p><strong>Example:</strong> Pay over time options available. Just email us to discuss what works for you.</p>
-</section>
-
-<section class="products" id="products">
-  <h3>Our Collection</h3>
-
-  <div class="grid">
-    <div class="card">
-      <img src="chair.jpg" alt="Solen Chair" style="width:100%; height:180px; object-fit:cover;">
-      <h4>Solen Chair</h4>
-      <p>$1290</p>
-      <a class="enquire" href="mailto:theoscarsfurniture@gmail.com?subject=Solen Chair Enquiry">Enquire</a>
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Trusted Since 2006 · Online Worldwide</p>
+      <h1 class="hero-title">Style<br>meets<br><em>comfort.</em></h1>
+      <p class="hero-sub">Quality furniture, expertly curated — bringing beautiful, modern pieces to your home since 2006.</p>
+      <a href="#products" class="hero-cta">Explore Collection</a>
     </div>
-
-    <div class="card">
-      <img src="table.jpg" alt="Avo Table" style="width:100%; height:180px; object-fit:cover;">
-      <h4>Avo Table</h4>
-      <p>$2850</p>
-      <a class="enquire" href="mailto:theoscarsfurniture@gmail.com?subject=Avo Table Enquiry">Enquire</a>
+    <div class="hero-right">
+      <div class="hero-img-placeholder">
+        <svg width="180" height="220" viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="40" y="10" width="100" height="80" rx="4" fill="#FFFFFF"/>
+          <rect x="30" y="90" width="120" height="14" rx="3" fill="#FFFFFF"/>
+          <rect x="30" y="104" width="8" height="80" rx="2" fill="#FFFFFF"/>
+          <rect x="142" y="104" width="8" height="80" rx="2" fill="#FFFFFF"/>
+          <rect x="38" y="170" width="30" height="8" rx="2" fill="#FFFFFF"/>
+          <rect x="112" y="170" width="30" height="8" rx="2" fill="#FFFFFF"/>
+        </svg>
+      </div>
+      <div class="hero-tag">
+        New Collection
+        <span>2025</span>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <img src="storage.jpg" alt="Linne Storage" style="width:100%; height:180px; object-fit:cover;">
-      <h4>Linne Storage</h4>
-      <p>$3400</p>
-      <a class="enquire" href="mailto:theoscarsfurniture@gmail.com?subject=Linne Storage Enquiry">Enquire</a>
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Est. 2006</span><span class="dot">·</span>
+      <span>Premium Quality</span><span class="dot">·</span>
+      <span>Modern Design</span><span class="dot">·</span>
+      <span>Worldwide Delivery</span><span class="dot">·</span>
+      <span>19 Years of Excellence</span><span class="dot">·</span>
+      <span>Carefully Curated</span><span class="dot">·</span>
+      <span>Est. 2006</span><span class="dot">·</span>
+      <span>Premium Quality</span><span class="dot">·</span>
+      <span>Modern Design</span><span class="dot">·</span>
+      <span>Worldwide Delivery</span><span class="dot">·</span>
+      <span>19 Years of Excellence</span><span class="dot">·</span>
+      <span>Carefully Curated</span><span class="dot">·</span>
     </div>
   </div>
-</section>
 
-<section class="contact" id="contact">
-  <h3>Start Your Project</h3>
-  <p>Email us at <a href="mailto:theoscarsfurniture@gmail.com">theoscarsfurniture@gmail.com</a></p>
-</section>
+  <!-- 19 YEARS MILESTONE BANNER -->
+  <div class="milestone-banner">
+    <div>
+      <div class="milestone-num">2006</div>
+      <div class="milestone-text">Established</div>
+    </div>
+    <div class="milestone-divider"></div>
+    <p class="milestone-tagline">"19 years of bringing great furniture to great homes."</p>
+    <div class="milestone-divider"></div>
+    <div>
+      <div class="milestone-num">19</div>
+      <div class="milestone-text">Years &amp; Counting</div>
+    </div>
+  </div>
 
-<footer>
-  © 2026 Oscar's Furniture
-</footer>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-visual reveal">
+      <div class="about-img-block">
+        <svg width="200" height="160" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="50" width="180" height="18" rx="3" fill="#FFFFFF"/>
+          <rect x="24" y="68" width="10" height="70" rx="2" fill="#FFFFFF"/>
+          <rect x="166" y="68" width="10" height="70" rx="2" fill="#FFFFFF"/>
+        </svg>
+      </div>
+      <div class="about-badge">
+        19
+        <small>Years</small>
+      </div>
+    </div>
+    <div class="about-body">
+      <p class="section-label reveal">Our Story</p>
+      <h2 class="section-title reveal">Nearly two decades<br>of quality.</h2>
+      <p class="reveal">Oscar Furniture was founded in 2006 with one goal: make it easy for everyone to furnish their home with pieces they'll love for years. What started as a passion for great design has grown into a trusted name in furniture retail.</p>
+      <p class="reveal">We carefully source and curate our collection from leading manufacturers, selecting only pieces that meet our high standards for quality, durability, and design — so you don't have to do the searching.</p>
+      <div class="about-stats reveal">
+        <div>
+          <div class="stat-num">19+</div>
+          <div class="stat-label">Years Trading</div>
+        </div>
+        <div>
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Online Service</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="products-header">
+      <div>
+        <p class="section-label reveal">Our Collection</p>
+        <h2 class="section-title reveal">Curated pieces<br>for modern living.</h2>
+      </div>
+      <a href="#contact" class="view-all reveal">Get In Touch →</a>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <svg width="120" height="150" viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="10" width="80" height="70" rx="3" fill="#FFFFFF"/>
+              <rect x="10" y="80" width="100" height="10" rx="2" fill="#FFFFFF"/>
+              <rect x="12" y="90" width="8" height="52" rx="2" fill="#FFFFFF"/>
+              <rect x="100" y="90" width="8" height="52" rx="2" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div class="product-overlay"><span class="quick-view">View More</span></div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Seating</p>
+          <p class="product-name">The Solen Chair</p>
+          <p class="product-price">From $1,290</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <svg width="160" height="100" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="30" width="150" height="14" rx="2" fill="#FFFFFF"/>
+              <rect x="14" y="44" width="8" height="50" rx="2" fill="#FFFFFF"/>
+              <rect x="138" y="44" width="8" height="50" rx="2" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div class="product-overlay"><span class="quick-view">View More</span></div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Tables</p>
+          <p class="product-name">Avo Dining Table</p>
+          <p class="product-price">From $2,850</p>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-img">
+          <div class="product-img-inner">
+            <svg width="140" height="120" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="10" width="120" height="80" rx="3" fill="#FFFFFF"/>
+              <rect x="10" y="90" width="28" height="24" rx="2" fill="#FFFFFF"/>
+              <rect x="102" y="90" width="28" height="24" rx="2" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div class="product-overlay"><span class="quick-view">View More</span></div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Storage</p>
+          <p class="product-name">Linne Sideboard</p>
+          <p class="product-price">From $3,400</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-left">
+      <p class="section-label reveal">Get In Touch</p>
+      <h2 class="section-title reveal">We'd love to<br>hear from you.</h2>
+      <p class="contact-tagline reveal">Whether you have a question about a product, need help choosing the right piece, or just want to say hello — we're here and happy to help, 7 days a week.</p>
+      <div class="contact-details">
+        <div class="reveal">
+          <p class="contact-item-label">Email Us</p>
+          <p class="contact-item-val">theoscarsfurniture@gmail.com</p>
+        </div>
+        <div class="reveal">
+          <p class="contact-item-label">Availability</p>
+          <p class="contact-item-val">We reply 7 days a week</p>
+        </div>
+        <div class="reveal">
+          <p class="contact-item-label">Trading Since</p>
+          <p class="contact-item-val">2006 — 19 years of service</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Jane"/>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Smith"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="jane@example.com"/>
+      </div>
+      <div class="form-group">
+        <label for="interest">I'm interested in</label>
+        <select id="interest">
+          <option value="" disabled selected>Select a category</option>
+          <option>Seating</option>
+          <option>Dining Tables</option>
+          <option>Storage</option>
+          <option>Bedroom Furniture</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Tell us what you're looking for…"></textarea>
+      </div>
+      <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Oscar Furniture</span>
+    <span class="footer-copy">© 2025 Oscar Furniture. Est. 2006. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    function handleSubmit() {
+      const email = document.getElementById('email').value;
+      const fname = document.getElementById('fname').value;
+      if (!fname || !email) {
+        alert('Please fill in your name and email.');
+        return;
+      }
+      alert("Thanks for reaching out! We'll get back to you as soon as possible.");
+    }
+  </script>
 
 </body>
 </html>
