@@ -29,7 +29,10 @@ nav a {
 
 /* HERO */
 .hero {
-  height: 90vh;
+  min-height: 90vh;
+  height: auto;
+  padding-top: 120px;
+  padding-bottom: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
