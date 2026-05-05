@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #0b2a4a;
+}
+
+/* HEADER */
+header {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+header img {
+  height: 55px;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background: linear-gradient(rgba(11,42,74,0.6), rgba(11,42,74,0.8)),
+              url('https://images.unsplash.com/photo-1494526585095-c41746248156');
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+}
+
+.hero h2 {
+  font-size: 52px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 16px;
+  max-width: 520px;
+  margin: auto;
+}
+
+.cta {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 24px;
+  background: white;
+  color: #0b2a4a;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* TRUST BAR */
+.trust {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #0b2a4a20;
+}
+
+/* ABOUT */
+.about {
+  padding: 60px 40px;
+  text-align: center;
+  background: #f5f9ff;
+}
+
+.about p {
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* PRODUCTS */
+.products {
+  padding: 60px 40px;
+}
+
+.products h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  border: 1px solid #0b2a4a20;
+  padding: 16px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.image {
+  height: 180px;
+  background: #0b2a4a10;
+  margin-bottom: 10px;
+}
+
+.card h4 {
+  margin: 5px 0;
+}
+
+.card p {
+  font-size: 14px;
+  color: #0b2a4a99;
+}
+
+.enquire {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  text-decoration: none;
+  color: #0b2a4a;
+  border-bottom: 1px solid #0b2a4a;
+}
+
+/* CONTACT */
+.contact {
+  padding: 60px 40px;
+  text-align: center;
+  background: #0b2a4a;
+  color: white;
+}
+
+.contact a {
+  color: white;
+  text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+  padding: 30px;
+  text-align: center;
+  font-size: 14px;
+}
