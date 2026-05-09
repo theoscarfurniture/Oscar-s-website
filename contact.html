@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Oscar's Furniture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-link">
+      <img src="Logo_png.png" alt="Oscar's Furniture" class="nav-logo-img"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="bedroom.html">Bedroom</a></li>
+      <li><a href="living-room.html">Living Room</a></li>
+      <li><a href="dining.html">Dining</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-hero-label">Get In Touch</p>
+    <h1>We'd love to <em>hear</em> from you.</h1>
+  </div>
+
+  <div class="contact-section">
+    <div>
+      <p class="section-label">Contact Details</p>
+      <h2 class="section-title" style="color:var(--white);">Let's find your<br>perfect piece.</h2>
+      <p class="contact-tagline">Whether you have a question about a product or need help choosing the right piece — we're here and happy to help, 7 days a week.</p>
+      <div class="contact-details">
+        <div>
+          <p class="contact-item-label">Email Us</p>
+          <p class="contact-item-val">theoscarsfurniture@gmail.com</p>
+        </div>
+        <div>
+          <p class="contact-item-label">Availability</p>
+          <p class="contact-item-val">We reply 7 days a week</p>
+        </div>
+        <div>
+          <p class="contact-item-label">Delivery Areas</p>
+          <p class="contact-item-val">Chicago Land &amp; Wisconsin</p>
+        </div>
+        <div>
+          <p class="contact-item-label">Trading Since</p>
+          <p class="contact-item-val">2006 — 19 years of service</p>
+        </div>
+        <div>
+          <p class="contact-item-label">Payments</p>
+          <p class="contact-item-val">Interest Free Options Available</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" placeholder="Jane"/></div>
+        <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="Smith"/></div>
+      </div>
+      <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="jane@example.com"/></div>
+      <div class="form-group">
+        <label for="interest">I'm interested in</label>
+        <select id="interest">
+          <option value="" disabled selected>Select a category</option>
+          <option>Bedroom Sets</option>
+          <option>Bed + Mattress Packages</option>
+          <option>Living Room — Sofas &amp; Sectionals</option>
+          <option>Dining Sets</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="product">Product Code (if known)</label><input type="text" id="product" placeholder="e.g. B122"/></div>
+      <div class="form-group"><label for="message">Message</label><textarea id="message" rows="5" placeholder="Tell us what you're looking for…"></textarea></div>
+      <button class="submit-btn" onclick="handleSubmit()">Send Message</button>
+    </div>
+  </div>
+
+  <footer>
+    <img src="Logo_png.png" alt="Oscar's Furniture" class="footer-logo-img"/>
+    <span class="footer-copy">© 2025 Oscar's Furniture. Est. 2006. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="bedroom.html">Bedroom</a>
+      <a href="living-room.html">Living Room</a>
+      <a href="dining.html">Dining</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+    function handleSubmit() {
+      const email = document.getElementById('email').value;
+      const fname = document.getElementById('fname').value;
+      if (!fname || !email) { alert('Please fill in your name and email.'); return; }
+      alert("Thanks for reaching out! We'll get back to you as soon as possible.");
+    }
+  </script>
+</body>
+</html>
