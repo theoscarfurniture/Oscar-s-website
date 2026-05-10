@@ -382,7 +382,7 @@ footer {
   display: flex; justify-content: space-between; align-items: center;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
-.footer-logo-img { height: 46px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.82; }
+.footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); }
 .footer-copy { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--text-muted); }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a {
