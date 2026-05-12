@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product — Oscar's Furniture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .product-detail {
+      padding-top: 100px;
+      min-height: 100vh;
+      background: var(--white);
+    }
+
+    .product-detail-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── IMAGE SIDE ── */
+    .product-detail-img-wrap {
+      position: relative;
+      background: var(--blue-pale);
+    }
+
+    .product-detail-img-wrap img {
+      width: 100%;
+      height: 100%;
+      min-height: 70vh;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.4s ease;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      border: none;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.8);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px; right: 32px;
+      color: white; font-size: 2.5rem;
+      cursor: pointer; line-height: 1;
+      font-weight: 200;
+      transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 0.6; }
+    .zoom-hint {
+      position: absolute;
+      bottom: 16px; right: 16px;
+      background: rgba(26,58,92,0.75);
+      color: white;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+    }
+
+    /* ── INFO SIDE ── */
+    .product-detail-info {
+      padding: 60px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    .product-detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      transition: color 0.3s;
+    }
+    .product-detail-back:hover { color: var(--blue-mid); }
+
+    .product-detail-cat {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: 14px;
+    }
+
+    .product-detail-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 36px;
+    }
+
+    .product-detail-code {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+
+    .product-detail-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--blue-light);
+      margin-bottom: 36px;
+    }
+
+    .product-detail-prices {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+
+    .product-detail-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--blue-pale);
+      border-left: 3px solid var(--blue-mid);
+    }
+
+    .price-row-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
+    .price-row-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--blue-deep);
+    }
+
+    .product-detail-note {
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .product-detail-enquire {
+      display: inline-block;
+      background: var(--blue-deep);
+      color: var(--white);
+      padding: 16px 48px;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s;
+      align-self: flex-start;
+    }
+    .product-detail-enquire:hover { background: var(--blue-mid); }
+
+    .product-not-found {
+      text-align: center;
+      padding: 120px 40px;
+    }
+    .product-not-found h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .product-not-found p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 900px) {
+      .product-detail-inner { grid-template-columns: 1fr; }
+      .product-detail-img-wrap img { min-height: 55vw; }
+      .product-detail-info { padding: 40px 28px; }
+      .product-detail-back { margin-bottom: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-link">
+      <img src="Logo_png.png" alt="Oscar's Furniture" class="nav-logo-img"/>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="bedroom.html" class="active">Bedroom</a></li>
+      <li><a href="livingroom.html">Living Room</a></li>
+      <li><a href="dining.html">Dining</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">×</span>
+    <img id="lightbox-img" src="" alt=""/>
+  </div>
+
+  <!-- PRODUCT DETAIL -->
+  <div class="product-detail">
+    <div class="product-detail-inner" id="product-content">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo-text">Oscar's Furniture</span>
+    <span class="footer-copy">© 2025 Oscar's Furniture. Est. 2006. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="bedroom.html">Bedroom</a>
+      <a href="livingroom.html">Living Room</a>
+      <a href="dining.html">Dining</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+    // ── Product data ──
+    const products = {
+      b020: { name: "Cherry Wood Traditional Set", cat: "Bedroom Set", q2: "$1,960", q4: "$3,400" },
+      b022: { name: "Grey Sleigh Tufted Set", cat: "Bedroom Set", q2: "$1,860", q4: "$3,060" },
+      b024: { name: "Silver Chrome LED Glam Set", cat: "Bedroom Set", q2: "$2,250", q4: "$3,400" },
+      b026: { name: "White/Silver LED Diamond Set", cat: "Bedroom Set", q2: "$1,450", q4: "$3,180" },
+      b027: { name: "White Channel Tufted LED Set", cat: "Bedroom Set", q2: "$1,860", q4: "$2,990" },
+      b030: { name: "Silver Mirror Panel Glam Set", cat: "Bedroom Set · Closeout", q2: "$1,680", q4: "$2,620" },
+      b034: { name: "Dark Silver Mirror Tufted Set", cat: "Bedroom Set · Closeout", q2: "$1,800", q4: "$2,800" },
+      b040: { name: "Grey Velvet Chesterfield Set", cat: "Bedroom Set", q2: "$1,800", q4: "$2,490" },
+      b055: { name: "Champagne Ornate Sleigh Set", cat: "Bedroom Set", q2: "$2,000", q4: "$3,520" },
+      b058: { name: "Dark Cherry Sleigh Set", cat: "Bedroom Set · Closeout", q2: "$1,640", q4: "$2,700" },
+      b060: { name: "Champagne Gold Ornate Set", cat: "Bedroom Set", q2: "$2,050", q4: "$2,830" },
+      b065: { name: "Dark Cherry Four-Poster Set", cat: "Bedroom Set · Closeout", q2: "$1,980", q4: "$2,950" },
+      b067: { name: "Dark Grey Traditional Panel Set", cat: "Bedroom Set", q2: "$1,900", q4: "$3,000" },
+      b070: { name: "Grey Storage Sleigh Set", cat: "Bedroom Set", q2: "$1,620", q4: "$2,560" },
+      b078: { name: "White Storage Panel Set", cat: "Bedroom Set", q2: "$1,750", q4: "$2,920" },
+      b090: { name: "Silver Tufted LED Set", cat: "Bedroom Set", q2: "$1,750", q4: "$2,900" },
+      b102: { name: "Dark Cherry Grand Ornate Set", cat: "Bedroom Set", q2: "$2,140", q4: "$3,850" },
+      b107: { name: "Dark Grey LED Storage Set", cat: "Bedroom Set", q2: "$1,880", q4: "$3,030" },
+      b108: { name: "Grey Mirror Chrome Tufted Set", cat: "Bedroom Set", q2: "$1,680", q4: "$2,700" },
+      b112: { name: "Grey Carved Tufted Set", cat: "Bedroom Set", q2: "$1,580", q4: "$2,490" },
+      b114: { name: "Black LED Channel Headboard Set", cat: "Bedroom Set", q2: "$1,880", q4: "$3,030" },
+      b117: { name: "Silver LED Fan Headboard Set", cat: "Bedroom Set", q2: "$1,950", q4: "$3,100" },
+      b118: { name: "Silver Glam LED Tufted Set", cat: "Bedroom Set", q2: "$1,560", q4: "$2,700" },
+      b120: { name: "Grey Rustic Storage Sleigh Set", cat: "Bedroom Set", q2: "$1,650", q4: "$2,700" },
+      b122: { name: "Grey Storage Bedroom Set", cat: "Bedroom Set", q2: "$1,750", q4: "$2,800" },
+      b124: { name: "Classic Grey Storage Set", cat: "Bedroom Set · New", q2: "$1,750", q4: "$2,900" },
+      b126: { name: "Grey Sleigh Storage Set", cat: "Bedroom Set", q2: "$1,700", q4: "$2,700" },
+      b128: { name: "Grey Tufted Arched Set", cat: "Bedroom Set", q2: "$1,520", q4: "$2,480" },
+      b128x: { name: "Grey Tufted Arched Set", cat: "Bedroom Set", q2: "$1,520", q4: "$2,480" },
+      b129: { name: "Cherry Wood Tufted Set", cat: "Bedroom Set · New", q2: "$1,520", q4: "$2,550" },
+      b130: { name: "Cherry Carved Tufted Leather Set", cat: "Bedroom Set", q2: "$1,400", q4: "$2,250" },
+      b145: { name: "Dark Panel Traditional Set", cat: "Bedroom Set · New", q2: "$1,470", q4: "$2,370" },
+      b192: { name: "White LED Tufted Set", cat: "Bedroom Set · New", q2: "$930", q4: "$1,480" },
+      b223: { name: "Grey Panel LED Storage Set", cat: "Bedroom Set", q2: "$1,700", q4: "$2,780" },
+      b224: { name: "White LED Mirror Panel Set", cat: "Bedroom Set · New", q2: "$1,540", q4: "$2,780" },
+      b236: { name: "Black Gold Storage Panel Set", cat: "Bedroom Set", q2: "$1,450", q4: "$2,260" },
+      b237: { name: "Grey Storage Panel Set", cat: "Bedroom Set", q2: "$1,450", q4: "$2,260" },
+      b252: { name: "White Spindle Panel Set", cat: "Bedroom Set", q2: "$1,350", q4: "$2,140" },
+      b269: { name: "Natural Upholstered Storage Set", cat: "Bedroom Set", q2: "$1,400", q4: "$2,140" },
+      b271: { name: "Dark Grey Storage Drawer Set", cat: "Bedroom Set", q2: "$1,350", q4: "$1,900" },
+      b280: { name: "Grey Chrome Tufted Glam Set", cat: "Bedroom Set", q2: "$1,150", q4: "$1,800" },
+      b316: { name: "Grey Storage Panel Set", cat: "Bedroom Set", q2: "$1,180", q4: "$1,870" },
+      b348: { name: "Grey LED Panel Bedroom Set", cat: "Bedroom Set", q2: "$1,220", q4: "$1,770" },
+      b370: { name: "Dark Walnut Modern Set", cat: "Bedroom Set · Closeout", q2: "$1,100", q4: "$1,500" },
+      b371: { name: "Grey Horizontal Panel Set", cat: "Bedroom Set", q2: "$1,100", q4: "$1,580" },
+      b375: { name: "Black LED Tufted Set", cat: "Bedroom Set · Closeout", q2: "$1,100", q4: "$1,730" },
+      b376: { name: "Grey LED Diamond Tufted Set", cat: "Bedroom Set", q2: "$1,100", q4: "$1,730" },
+      b377: { name: "Grey Rustic LED Tufted Set", cat: "Bedroom Set", q2: "$1,100", q4: "$1,730" },
+      b378: { name: "White LED Tufted Set", cat: "Bedroom Set · Closeout", q2: "$1,100", q4: "$1,730" },
+      b395: { name: "Black LED Tufted Set", cat: "Bedroom Set", q2: "$1,100", q4: "$1,730" },
+      b396: { name: "White LED Tufted Set", cat: "Bedroom Set", q2: "$1,100", q4: "$1,730" },
+      b515: { name: "Grey Upholstered Panel Set", cat: "Bedroom Set", q2: "$890", q4: "$1,400" },
+      b517: { name: "Dark Grey X-Panel Farmhouse Set", cat: "Bedroom Set", q2: "$920", q4: "$1,430" },
+      b519: { name: "Dark Grey Panel Set", cat: "Bedroom Set", q2: "$920", q4: "$1,430" },
+      b520: { name: "Light Grey Panel Set", cat: "Bedroom Set", q2: "$920", q4: "$1,430" },
+      b522: { name: "Dark Grey X-Panel Set", cat: "Bedroom Set", q2: "$850", q4: "$1,399" },
+      b523: { name: "White Crossbuck Farmhouse Set", cat: "Bedroom Set", q2: "$850", q4: "$1,399" },
+      b526: { name: "Natural Wood Farmhouse Set", cat: "Bedroom Set", q2: "$820", q4: "$1,520" },
+      b528: { name: "Grey Crossbuck Farmhouse Set", cat: "Bedroom Set", q2: "$920", q4: "$1,430" },
+      b543: { name: "Black Fireplace Bluetooth Bed", cat: "Bed + Mattress", qprice: "Queen + Mattress", q2: "$1,650", q4: "King + Mattress: $1,750" },
+      b544: { name: "Grey Fireplace Bluetooth Bed", cat: "Bed + Mattress", q2: "$1,650", q4: "$1,750" },
+      b545: { name: "Black Round Storage Bed", cat: "Bed + Mattress", q2: "$2,090", q4: "$2,250" },
+      b552: { name: "Grey Tall Tufted Velvet Bed", cat: "Bed + Mattress", q2: "$1,630", q4: "$1,800" },
+      b570: { name: "Beige Ribbed Upholstered Bed", cat: "Bed + Mattress", q2: "$1,300", q4: "$1,450" },
+      b587: { name: "Linen Wingback Tufted Bed", cat: "Bed + Mattress", q2: "$899", q4: "$1,100" },
+      b590: { name: "Black Tufted Set + Mattress", cat: "Bedroom Set", q2: "$880", q4: "$1,790" },
+      b596: { name: "Beige Wingback Tufted Bed", cat: "Bed + Mattress", q2: "$880", q4: "$950" }
+    };
+
+    // Bed+Mattress label logic
+    const mattressLabel = {
+      b543: ["Queen + Mattress", "King + Mattress"],
+      b544: ["Queen + Mattress", "King + Mattress"],
+      b545: ["Queen + Mattress", "King + Mattress"],
+      b552: ["Queen + Mattress", "King + Mattress"],
+      b570: ["Queen + Mattress", "King + Mattress"],
+      b587: ["Queen + Mattress", "King + Mattress"],
+      b590: ["Queen + Mattress", "Queen 4 pcs"],
+      b596: ["Queen + Mattress", "King + Mattress"]
+    };
+
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // Load product from URL param
+    const params = new URLSearchParams(window.location.search);
+    const code = (params.get('code') || '').toLowerCase();
+    const product = products[code];
+    const container = document.getElementById('product-content');
+
+    if (product) {
+      const imgSrc = `images/images/${code}.jpg`;
+      const labels = mattressLabel[code] || ["Queen 2 pcs", "Queen 4 pcs"];
+      document.title = `${product.name} — Oscar's Furniture`;
+
+      container.innerHTML = `
+        <div class="product-detail-img-wrap">
+          <img src="${imgSrc}" alt="${product.name}" onclick="openLightbox('${imgSrc}')"/>
+          <div class="zoom-hint">🔍 Click to enlarge</div>
+        </div>
+        <div class="product-detail-info">
+          <a href="bedroom.html" class="product-detail-back">← Back to Bedroom Sets</a>
+          <p class="product-detail-cat">${product.cat}</p>
+          <h1 class="product-detail-name">${product.name}</h1>
+          <p class="product-detail-code">Product Code: ${code.toUpperCase()}</p>
+          <div class="product-detail-divider"></div>
+          <div class="product-detail-prices">
+            <div class="product-detail-price-row">
+              <span class="price-row-label">${labels[0]}</span>
+              <span class="price-row-val">${product.q2}</span>
+            </div>
+            <div class="product-detail-price-row">
+              <span class="price-row-label">${labels[1]}</span>
+              <span class="price-row-val">${product.q4}</span>
+            </div>
+          </div>
+          <p class="product-detail-note">Interest free payment options available. Delivery to Chicago Land Area and Wisconsin. Contact us for more information or to place an order.</p>
+          <a href="contact.html?product=${code.toUpperCase()}" class="product-detail-enquire">Enquire About This Set →</a>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="product-not-found">
+          <h2>Product Not Found</h2>
+          <p>We couldn't find that product. Browse our full bedroom collection below.</p>
+          <a href="bedroom.html" class="product-detail-enquire">View All Bedroom Sets →</a>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
