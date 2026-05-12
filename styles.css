@@ -426,3 +426,10 @@ footer {
   .products-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
 }
+
+/* Product card link wrapper */
+.product-card a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
